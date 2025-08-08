@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define SIZE 5
+
+// Define the  structure of Queue
+struct queue
+ {
+    int Q[SIZE];
+    int front;
+    int rear;
+};
+
+
+
+int isFull(struct queue* q) {
+    if (q->rear == SIZE - 1)
+        return 1;
+    else
+        return 0;
+}
+
+int isEmpty(struct queue* q) {
+    if (q->front == -1)
+        return 1;
+    else
+        return 0;
+}
+
+
+void Enqueue(struct queue* q, int value)
+ {
+    if (isFull(q))
+     {
+        printf("Queue is full. Cannot insert element %d.\n", value);
+    }
+    else
+    {
+        if (q->front == -1)
+            q->front = 0;
+        q->rear++;
+        q->Q[q->rear] = value;
+        printf("Inserted %d\n", value);
+    }
+}
+
+void printQueue(struct queue* q) {
+    if (isEmpty(q)) {
+        printf("Queue is empty.\n");
+    } else {
+        printf("Queue elements are: ");
+        for (int i = q->front; i <= q->rear; i++) {
+            printf("%d ", q->Q[i]);
+        }
+        printf("\n");
+    }
+}
+
+int main()
+ {
+    struct queue* q;
+    q = (struct queue*)malloc(sizeof(struct queue));
+    q->front = -1;
+    q->rear = -1;
+
+    Enqueue(q, 11);
+    Enqueue(q, 22);
+    Enqueue(q, 33);
+    Enqueue(q, 44);
+    Enqueue(q, 55);
+    Enqueue(q, 66); // Attempt to insert when the queue is full
+
+    printQueue(q);
+
+    return 0;
+}
