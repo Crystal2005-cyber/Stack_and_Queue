@@ -27,3 +27,4 @@ Rear: Returns the element at the rear without removing it.
 Applications: Task scheduling, print spooling, breadth-first search algorithms, managing shared resources. 
 
 Both stacks and queues can be implemented using arrays or linked lists. Their choice depends on the specific requirements of the application, including efficiency considerations for insertion and deletion operations.
+-----------------
