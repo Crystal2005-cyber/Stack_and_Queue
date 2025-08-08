@@ -1,0 +1,44 @@
+// Array based implementation of stack for push operation
+
+
+#include <stdio.h>
+#define STACK_MAX_SIZE 20
+
+// Define the  structure of stack
+struct Stack
+ {
+    int stack_Data[STACK_MAX_SIZE];      // stack_Data is an aray of size 20
+    int stack_top;                      // stack_top is variable pointing to top os stack
+};
+
+
+// Function to push an element onto the stack
+
+void push(struct Stack *s, int newdata)
+ {
+    if (s->stack_top == STACK_MAX_SIZE - 1)
+     {
+        printf("Stack Overflow\n");
+    }
+    else
+    {
+         // Increment the  top pointer
+        s->stack_top++;
+
+         // Insert element at the top of stack
+        s->stack_Data[s->stack_top] = newdata;
+        printf("%d pushed to stack\n", newdata);
+    }
+}
+
+int main()
+ {
+    struct Stack s;
+    stack.stack_top = -1;
+    // Push some elements onto the stack
+    push(&stack, 10);
+     push(&stack, 20);
+
+
+    return 0;
+}
